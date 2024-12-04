@@ -8,6 +8,8 @@ import { message as antMessage } from "antd";
 import UserApi from "../../entities/user/UserApi";
 import { setAccessToken } from "../../shared/lib/axiosInstance";
 
+
+
 export default function Navigation({ user, setUser }) {
   const navigate = useNavigate();
 
@@ -32,41 +34,60 @@ export default function Navigation({ user, setUser }) {
 
   return (
     <div>
-      <div className={styles.container}>
-        <Button text="Main" onClick={() => navigate("/")} />
+      <div>
 
         {user && (
-          <>
-            <span>{user.username}</span>{" "}
-            <Button text="signOut" onClick={signOutHandler} />{" "}
+          <div className={styles.container}>
+             <div className={styles.headerlogo}><img src="/abc.png" alt="logo" /></div>
+          <div className={styles.username}>
+            <span className={styles.name} >{user.username}</span>{" "} </div>
+            
+            <div className={styles.buttons}>
+            <button className={styles.bigButton} onClick={signOutHandler}>Выйти</button>{" "}
            
 
             <Link to="/recipes">
-              <Button text="Recipes" />
+            <button className={styles.bigButton}> Рецепты </button> 
             </Link>
 
             <Link to="/favs">
-              <Button text="Favourites" />
+            <button className={styles.bigButton}> Избранное </button> 
             </Link>
-          </>
+          </div>
+          </div>
         )}
 
         {!user && (
-          <>
+         <div className={styles.auth}>
+         <div className={styles.headerlogo}><img src="/abc.png" alt="logo" /></div>
+         
+         <div className={styles.buttons}>
+           
+          
+           
             <Link to="/signin">
-              <Button text="Signin" />
+              <button className={styles.bigButton}> Вход </button> 
             </Link>
 
             <Link to="/signup">
-              <Button text="Signup" />
+              <button className={styles.bigButton}> Регистрация </button>
             </Link>
 
-          </>
+          </div>
+          </div>
         )}
       </div>
       <Outlet />
+<div className={styles.footer} >
+  <div className={styles.contacts}>  <span>Контакты</span>
+  <span>Телефон: 432-22-13</span>
+  <span>Почта: sobaka@sobaka.ru</span>
+  <span>Факс: huyaks</span></div>
+  
 
-      <h1>FOOTER</h1>
+  
+</div>
+      
     </div>
   );
 }
