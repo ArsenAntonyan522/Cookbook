@@ -8,9 +8,12 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/database.json')[env];
 const db = {};
+
+
 require('dotenv').config({
-  path: path.resolve(__dirname, '..', '..', '..', '.env'),
+  path: path.resolve(__dirname, '../../../.env'),
 });
+
 
 let sequelize;
 if (config.use_env_variable) {
