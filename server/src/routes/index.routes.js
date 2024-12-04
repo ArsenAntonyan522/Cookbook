@@ -16,4 +16,4 @@ router.use("*", (req, res) => {
     .json(formatResponse(404, "Not found", null, "Resource not found"));
 });
 
-module.exports = router;
+module.exports = router
