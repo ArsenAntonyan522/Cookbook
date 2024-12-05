@@ -50,7 +50,7 @@ export default function Navigation({ user, setUser }) {
             <button className={styles.bigButton}> Рецепты </button> 
             </Link>
 
-            <Link to="/favs">
+            <Link to="/fav">
             <button className={styles.bigButton}> Избранное </button> 
             </Link>
           </div>

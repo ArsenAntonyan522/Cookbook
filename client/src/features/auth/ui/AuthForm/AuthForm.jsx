@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { message as antMessage } from "antd";
@@ -6,7 +6,7 @@ import UserValidator from "../../../../entities/user/User.validator";
 import UserApi from "../../../../entities/user/UserApi";
 import Button from "../../../../shared/ui/Button/Button";
 import { setAccessToken } from "../../../../shared/lib/axiosInstance";
-import styles from "./AuthForm.module.css";
+// import styles from "./AuthForm.module.css";
 
 export default function AuthForm({ type, setUser }) {
   const [inputs, setInputs] = useState({
