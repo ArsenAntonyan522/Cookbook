@@ -5,10 +5,12 @@ import SignUpPage from "../pages/SignUpPage/SignUpPage.jsx";
 import { useEffect, useState } from "react";
 import UserApi from "../entities/user/UserApi.js";
 import { setAccessToken } from "../shared/lib/axiosInstance.js";
-import FavPage from "../pages/FavPage/FavPage.jsx";
 import NotFound from "../pages/Not found/notFound.jsx";
 import RecipePage from "../pages/RecipePage/RecipePage.jsx";
 import RandomRecipeForm from "../widgets/RandomRecipeForm/RandomRecipeForm.jsx";
+// import FavoriteRecipes from "../widgets/FavoriteRecipes/FavoriteRecipes.jsx";
+import MainPage from "../pages/MainPage/MainPage.jsx";
+import FavPage from "../pages/FavPage/FavPage.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -35,6 +37,7 @@ function App() {
       path: "/",
       element: <Navigation user={user} setUser={setUser} />,
       children: [
+        { path: '/', element: <MainPage /> },
         { path: "/signin", element: <SignInPage setUser={setUser} /> },
         { path: "/signup", element: <SignUpPage setUser={setUser} /> },
         { path: "/fav",

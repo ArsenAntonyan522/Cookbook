@@ -99,7 +99,7 @@ export default function AuthForm({ type, setUser }) {
 
   return (
     <>
-      <h3>{type === "signin" ? "Вход" : "Регистрация"}</h3>{" "}
+      <h3>{type === "signin" ? "Sign in" : "Sign up"}</h3>{" "}
       <form onSubmit={submitHandler}>
         {" "}
         <input
@@ -129,10 +129,10 @@ export default function AuthForm({ type, setUser }) {
           />
         )}
         {type === "signin" ? (
-          <Button text="Вход" color="green" disabled={loading} type="submit" />
+          <Button text="enter" color="green" disabled={loading} type="submit" />
         ) : (
           <Button
-            text="Регистрация"
+            text="enter"
             color="green"
             disabled={loading}
             type="submit"

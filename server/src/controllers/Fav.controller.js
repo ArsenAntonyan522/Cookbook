@@ -41,9 +41,9 @@ class FavController {
       
       const { user } = res.locals;
       const userId = user.id;
-      const { recipeId } = req.body;
+      const { recipeId, title, image } = req.body; // 
       console.log(recipeId)
-      const favorite = await FavService.createFav(userId, recipeId);
+      const favorite = await FavService.createFav(userId, recipeId, title, image); // 
       return res.status(201).json(formatResponse(201, "success", favorite));
     } catch ({ message }) {
       console.error(message);

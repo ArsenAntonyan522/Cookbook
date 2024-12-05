@@ -5,20 +5,17 @@ class RecipeApi {
   static async getRecipes(input) {
     const API_KEY = import.meta.env.VITE_RECIPES_API_KEY;
 
-    
-
     try {
-      
-    //   const { data: test } = await axios.get(
-    //     `https://api.spoonacular.com/recipes/631902/information`,
-    //     {
-    //       params: {
-    //         apiKey: API_KEY,
-    //       },
-    //     }
-    //   );
+      //   const { data: test } = await axios.get(
+      //     `https://api.spoonacular.com/recipes/631902/information`,
+      //     {
+      //       params: {
+      //         apiKey: API_KEY,
+      //       },
+      //     }
+      //   );
 
-    //   console.log(test);
+      //   console.log(test);
 
       const { data } = await axios.get(
         `https://api.spoonacular.com/recipes/complexSearch`,
@@ -34,33 +31,34 @@ class RecipeApi {
     } catch (error) {
       return error.response.data;
     }
-  
   }
- static async getRandom() {
-  const API_KEY = import.meta.env.VITE_RECIPES_API_KEY;
+  static async getRandom() {
+    const API_KEY = import.meta.env.VITE_RECIPES_API_KEY;
 
-  try {
-    const { data } = await axios.get(
-      `https://api.spoonacular.com/recipes/random`,
-      {
-        params: {
-          number: 10, 
-          apiKey: API_KEY,
-        },
-      }
-    );
-    return data.recipes; 
-  } catch (error) {
-    return error.response.data;
-  }
-}
-
-
-
-
-  static async addToFav(recipeId) {
     try {
-      const { data } = await axiosInstance.post("/fav", { recipeId });
+      const { data } = await axios.get(
+        `https://api.spoonacular.com/recipes/random`,
+        {
+          params: {
+            number: 10,
+            apiKey: API_KEY,
+          },
+        }
+      );
+      return data.recipes;
+    } catch (error) {
+      return error.response.data;
+    }
+  }
+
+  static async addToFav(recipeId, title, image) {
+    //
+    try {
+      const { data } = await axiosInstance.post("/fav", {
+        recipeId,
+        title,
+        image,
+      }); //
       return data;
     } catch (error) {
       return error.response.data;
@@ -69,11 +67,20 @@ class RecipeApi {
 
   static async deleteFromFav(recipeId) {
     try {
-
-      const { data } = await axiosInstance.delete(`/fav/${recipeId} `);
+      const { data } = await axiosInstance.delete(`/fav/${recipeId}`);
 
       return data;
     } catch (error) {
+      return error.response.data;
+    }
+  }
+
+  static async getAllFavorites() {
+    try {
+      const { data } = await axiosInstance.get("/fav"); 
+      return data; // Список избранных рецептов
+    } catch (error) {
+      console.error(error);
       return error.response.data;
     }
   }
