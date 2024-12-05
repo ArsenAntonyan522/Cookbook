@@ -35,7 +35,7 @@ const RecipePage = () => {
         <div>
         <RecipeForm input={input} setInput={setInput}/>
             <button onClick={handleSearch} disabled={loading}>
-                <span>Заработай, пожалуйста</span>
+                <span>Search</span>
             </button>
         <RecipeList recipes={recipes}/>
         </div>
