@@ -7,7 +7,7 @@ const favRoutes = require('./fav.routes')
 router
 
 
-.use("/recipes", recipeRoutes)
+// .use("/recipes", recipeRoutes)
 .use("/auth", authRoutes)
 .use('/fav', favRoutes)
 
