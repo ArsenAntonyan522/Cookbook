@@ -5,6 +5,65 @@
   width: 100%;
   justify-content: space-around;
   padding: 20px;
-  margin-bottom: 40px;
   border-bottom: 1px solid white;
+  background-color:white;
 }
+
+.bigButton {
+  /* display: flex; */
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 20px;
+  background-color: rgb(255, 255, 255);
+  font-style: italic;
+  margin-left: 10px;
+  box-shadow: 2px 1px 1px black;
+  }
+
+  .name {
+    display: flex;
+    color:rgb(0, 0, 0);
+    
+  }
+
+  .username {
+    font-size: 30px;
+  }
+
+  .buttons {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  padding: 20px;
+  border-bottom: 1px solid white;
+  background-color: white;
+  align-items: center;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.headerlogo {
+  
+
+}
+
+
