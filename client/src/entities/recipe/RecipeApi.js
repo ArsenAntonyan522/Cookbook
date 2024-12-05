@@ -5,17 +5,17 @@ class RecipeApi {
   static async getRecipes(input) {
     const API_KEY = import.meta.env.VITE_RECIPES_API_KEY;
 
-    try {
-      const { data: test } = await axios.get(
-        `https://api.spoonacular.com/recipes/631902/information`,
-        {
-          params: {
-            apiKey: API_KEY,
-          },
-        }
-      );
+    // try {
+    //   const { data: test } = await axios.get(
+    //     `https://api.spoonacular.com/recipes/631902/information`,
+    //     {
+    //       params: {
+    //         apiKey: API_KEY,
+    //       },
+    //     }
+    //   );
 
-      console.log(test);
+    //   console.log(test);
 
       const { data } = await axios.get(
         `https://api.spoonacular.com/recipes/complexSearch`,
@@ -31,11 +31,20 @@ class RecipeApi {
     } catch (error) {
       return error.response.data;
     }
-  }
+  
 
   static async addToFav(recipeId) {
     try {
       const { data } = await axiosInstance.post("/fav", { recipeId });
+      return data;
+    } catch (error) {
+      return error.response.data;
+    }
+  }
+
+  static async deleteFromFav(recipeId) {
+    try {
+      const { data } = await axiosInstance.delete(`/fav/${recipeId}`);
       return data;
     } catch (error) {
       return error.response.data;
