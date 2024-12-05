@@ -2,10 +2,30 @@ const FavService = require("../services/Fav.service");
 const formatResponse = require("../utils/formatResponse");
 
 class FavController {
-  //get - показать все лайки юзера
+  static async getOneFavItem(req, res) {
+    try {
+      const { user } = res.locals;
+      const userId = user.id;
+      const { recipeId } = req.params;
+      const favorite = await FavService.getByRecipeId(recipeId, userId);
+      if (!favorite) {
+       return  res
+        .status(404)
+        .json(formatResponse(404, "Not found", null,  "Not found"));
+    }
+      return res.status(200).json(formatResponse(200, "success", favorite));
+    } catch ({ message }) {
+      console.error(message);
+      res
+        .status(500)
+        .json(formatResponse(500, "Internal server error", null, message));
+    }
+  }
+
   static async getAllFav(req, res) {
     try {
-      const { userId } = req.params;
+      const { user } = res.locals;
+      const userId = user.id;
       const favorites = await FavService.getAllFav(userId);
       return res.status(200).json(formatResponse(200, "success", favorites));
     } catch ({ message }) {
@@ -16,11 +36,11 @@ class FavController {
     }
   }
 
-  // post recipe/:recipeId/ - добавить лайк на карточке
   static async createFav(req, res) {
     try {
-      const userId = res.locals.user.id;
-      const { recipeId } = req.params;
+      const { user } = res.locals;
+      const userId = user.id;
+      const { recipeId } = req.body;
       const favorite = await FavService.createFav(userId, recipeId);
       return res.status(201).json(formatResponse(201, "success", favorite));
     } catch ({ message }) {
@@ -31,12 +51,26 @@ class FavController {
     }
   }
 
-  // delete удаление лайка
   static async deleteFav(req, res) {
-    const userId = res.locals.user.id;
-    const { recipeId } = req.params;
+    const { user } = res.locals;
+    const userId = user.id;
+    const { favId } = req.params;
     try {
-      const deleteFav = await FavService.deleteFav(userId, recipeId);
+      const favToDelete = await FavService.getById(favId);
+
+      if (favToDelete.userId !== userId) {
+        return res
+          .status(400)
+          .json(
+            formatResponse(
+              400,
+              "No rights to delete like",
+              null,
+              "No rights to delete like"
+            )
+          );
+      }
+      const deleteFav = await FavService.deleteFav(userId, favId);
       res
         .status(200)
         .json(formatResponse(200, `Favorite successfully deleted`, deleteFav));
@@ -47,24 +81,6 @@ class FavController {
         .json(formatResponse(500, "Internal server error", null, message));
     }
   }
-
-  // /:recipeId/like
-//   static async getRecipeFav(req, res) {
-//     try {
-//       const userId = res.locals.user.id;
-//       const { recipeId } = req.params;
-//       const recipe = await FavService.getFav(recipeId, userId);
-
-//       if (recipe === null) {
-//         res.status(404).json(null);
-//         return;
-//       }
-
-//       res.status(200).json(recipe);
-//     } catch (error) {
-//       res.status(500).json({ message: error.message });
-//     }
-//   }
- }
+}
 
 module.exports = FavController;
