@@ -76,6 +76,7 @@ export default function Navigation({ user, setUser }) {
         )}
       </div>
       <Outlet />
+      
       <div className={styles.footer}>
         <div className={styles.contacts}>
           {" "}

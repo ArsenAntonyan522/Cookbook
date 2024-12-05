@@ -1,10 +1,11 @@
-import FavoriteList from "../../widgets/FavoriteList/FavoriteFavoriteList";
+import FavouriteList from "../../widgets/FavouriteList/FavouriteList";
+
 
 
 export default  function FavPage() {
 
   return (
-<FavoriteList />
+<FavouriteList />
   );
 }
 

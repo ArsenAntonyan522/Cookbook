@@ -8,7 +8,6 @@ import { setAccessToken } from "../shared/lib/axiosInstance.js";
 import NotFound from "../pages/Not found/notFound.jsx";
 import RecipePage from "../pages/RecipePage/RecipePage.jsx";
 import RandomRecipeForm from "../widgets/RandomRecipeForm/RandomRecipeForm.jsx";
-// import FavoriteRecipes from "../widgets/FavoriteRecipes/FavoriteRecipes.jsx";
 import MainPage from "../pages/MainPage/MainPage.jsx";
 import FavPage from "../pages/FavPage/FavPage.jsx";
 

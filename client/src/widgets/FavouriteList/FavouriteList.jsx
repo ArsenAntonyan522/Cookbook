@@ -4,7 +4,7 @@ import { DeleteOutlined } from "@ant-design/icons";
 import RecipeApi from "../../entities/recipe/RecipeApi";
 
 
-export default function FavoriteList() {
+export default function FavouriteList() {
   const [favorites, setFavorites] = useState([]); 
   const [loading, setLoading] = useState(true); 
 
