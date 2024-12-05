@@ -10,7 +10,7 @@ function FavPage() {
     const fetchFavorites = async () => {
       try {
         const response = await axiosInstance.get("/fav");
-        setFavorites(response.data.data); // предполагается, что сервер возвращает массив рецептов в `data.data`
+        setFavorites(response.data.data);
       } catch (error) {
         console.error("Failed to fetch favorites:", error.message);
       } finally {
@@ -28,9 +28,9 @@ function FavPage() {
         <h2>Favorites</h2>
         {favorites.length > 0 ? (
           <ul>
-            {favorites.map((recipe) => (
+            {/* {favorites.map((recipe) => (
               <li key={recipeId}>{recipe.name}</li>
-            ))}
+            ))} */}
           </ul>
         ) : (
           <p>No favorites added yet.</p>

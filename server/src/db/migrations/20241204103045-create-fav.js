@@ -18,10 +18,6 @@ module.exports = {
       },
       recipeId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: "Recipes",
-          key: "id"
-        }
       },
       createdAt: {
         allowNull: false,

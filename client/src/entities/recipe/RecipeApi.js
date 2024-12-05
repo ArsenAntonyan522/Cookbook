@@ -1,16 +1,41 @@
-import { axiosInstance } from '../../shared/lib/axiosInstance';
+import axios from "axios";
+import { axiosInstance } from "../../shared/lib/axiosInstance";
 
 class RecipeApi {
- 
- 
-  static async getRecipes() {
-    const API_KEY = `1c011d0e21394237ac3a9a48698e1f11`
+  static async getRecipes(input) {
+    const API_KEY = import.meta.env.VITE_RECIPES_API_KEY;
+
     try {
-      const { data } = await axiosInstance.get(`https://api.spoonacular.com/recipes/complexSearch`,   params: {
-        query: data,
-        number: 10, // количество возвращаемых рецептов
-        apiKey: API_KEY,
-    });
+      const { data: test } = await axios.get(
+        `https://api.spoonacular.com/recipes/631902/information`,
+        {
+          params: {
+            apiKey: API_KEY,
+          },
+        }
+      );
+
+      console.log(test);
+
+      const { data } = await axios.get(
+        `https://api.spoonacular.com/recipes/complexSearch`,
+        {
+          params: {
+            query: input,
+            number: 10,
+            apiKey: API_KEY,
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      return error.response.data;
+    }
+  }
+
+  static async addToFav(recipeId) {
+    try {
+      const { data } = await axiosInstance.post("/fav", { recipeId });
       return data;
     } catch (error) {
       return error.response.data;
@@ -18,3 +43,5 @@ class RecipeApi {
   }
 }
 export default RecipeApi;
+
+// fetch('https://api.spoonacular.com/recipes/631902').then(res => res.json()).catch(console.log)

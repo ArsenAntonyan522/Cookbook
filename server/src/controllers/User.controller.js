@@ -44,6 +44,7 @@ class UserController {
 
     const normalizedEmail = email.toLowerCase();
 
+
     try {
       const userFound = await UserService.getByEmail(normalizedEmail);
 
@@ -67,9 +68,12 @@ class UserController {
         username,
         password: hashedPassword,
       });
+      
 
-      const plainUser = newUser.get({ plain: true });
+      const plainUser = newUser.get();
       delete plainUser.password;
+
+      console.log(plainUser);
 
       const { accessToken, refreshToken } = generateTokens({ user: plainUser });
       res

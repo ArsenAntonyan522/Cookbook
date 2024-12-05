@@ -40,7 +40,7 @@ function App() {
           element: user ? <FavPage user={user} /> :
             <SignInPage setUser={setUser} />
         },
-        { path: "/recipe",
+        { path: "/recipes",
           element: user ? <RecipePage user={user} /> :
             <SignInPage setUser={setUser} />
         },
