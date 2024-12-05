@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
-import { axiosInstance } from "../../shared/lib/axiosInstance";
-import { message as antMessage } from 'antd';
+
+import { useEffect, useState } from 'react';
+import { axiosInstance } from '../../shared/lib/axiosInstance';
+import RecipeCard from '../../widgets/RecipeCard/RecipeCard';
+
 
 function FavPage() {
   const [favorites, setFavorites] = useState([]);

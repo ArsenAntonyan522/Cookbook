@@ -6,6 +6,6 @@ router
   .get("/", verifyAccessToken, FavController.getAllFav)
   .get("/:recipeId", verifyAccessToken, FavController.getOneFavItem) // покажет карточки, добавленные в избранное
   .post("/", verifyAccessToken, FavController.createFav)
-  .delete("/:favId", verifyAccessToken, FavController.deleteFav);
+  .delete("/:recipeId", verifyAccessToken, FavController.deleteFav);
 
 module.exports = router;

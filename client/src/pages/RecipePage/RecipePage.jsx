@@ -1,6 +1,7 @@
 
 import { message as antMessage } from 'antd';
-import RecipeList from '../../widgets/RecipeList/RecipeList'
+
+import RecipeList from '../../widgets/RecipeList/RecipeList';
 import RecipeForm from '../../widgets/RecipeForm/RecipeForm';
 import RecipeApi from '../../entities/recipe/RecipeApi';
 import { useState } from 'react';
