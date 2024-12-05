@@ -28,6 +28,9 @@ export default function RecipeCard({ recipe }) {
     }
   };
 
+
+
+  
   return (
     <div>
       <h2>{recipe.title}</h2>
