@@ -31,8 +31,8 @@ function FavPage() {
         <ul>
           {favorites.map((recipe) => (
             <li key={recipe.id}>
-              <h3>{recipe.name}</h3>
-              <a href={`https://spoonacular.com/recipes/${recipeId}`} target="_blank" rel="noopener noreferrer">
+              <h3>{recipe.title}</h3>
+              <a href={`https://spoonacular.com/recipes/${recipe.id}`} target="_blank" rel="noopener noreferrer">
                 <img src={recipe.image} alt={recipe.name} width="200" />
               </a>
             </li>
