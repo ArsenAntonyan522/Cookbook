@@ -7,6 +7,7 @@ import UserApi from "../entities/user/UserApi.js";
 import { setAccessToken } from "../shared/lib/axiosInstance.js";
 import FavPage from "../pages/FavPage/FavPage.jsx";
 import NotFound from "../pages/Not found/notFound.jsx";
+import RecipePage from "../pages/RecipePage/RecipePage.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -35,23 +36,21 @@ function App() {
       children: [
         { path: "/signin", element: <SignInPage setUser={setUser} /> },
         { path: "/signup", element: <SignUpPage setUser={setUser} /> },
-        { path: "*", element: <NotFound  /> },
-        {
-          element: user && (
+        { path: "/fav",
+          element: user ? <FavPage user={user} /> :
             <SignInPage setUser={setUser} />
-          ),
         },
-        {path: "/fav",
-          element: user && (
-            <FavPage user={user} />
-          ),
+        { path: "/recipes",
+          element: user ? <RecipePage user={user} /> :
+            <SignInPage setUser={setUser} />
         },
-
+        { path: "*", element: <NotFound  /> },
       ],
     },
   ]);
 
   return <RouterProvider router={router} />;
+
 }
 
 export default App;

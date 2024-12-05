@@ -15,6 +15,7 @@ const corsConfig = {
 
 const serverConfig = (app) => {
   app.use(express.urlencoded({ extended: true }));
+  console.log(CLIENT_URL);
 
   app.use(express.json());
 
