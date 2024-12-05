@@ -12,4 +12,6 @@ export default function RecipeForm({ input, setInput}) {
       
     </div>
   );
+
 }
+

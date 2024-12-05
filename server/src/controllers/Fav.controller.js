@@ -9,10 +9,10 @@ class FavController {
       const { recipeId } = req.params;
       const favorite = await FavService.getByRecipeId(recipeId, userId);
       if (!favorite) {
-       return  res
-        .status(404)
-        .json(formatResponse(404, "Not found", null,  "Not found"));
-    }
+        return res
+          .status(404)
+          .json(formatResponse(404, "Not found", null, "Not found"));
+      }
       return res.status(200).json(formatResponse(200, "success", favorite));
     } catch ({ message }) {
       console.error(message);
@@ -38,9 +38,11 @@ class FavController {
 
   static async createFav(req, res) {
     try {
+      
       const { user } = res.locals;
       const userId = user.id;
       const { recipeId } = req.body;
+      console.log(recipeId)
       const favorite = await FavService.createFav(userId, recipeId);
       return res.status(201).json(formatResponse(201, "success", favorite));
     } catch ({ message }) {

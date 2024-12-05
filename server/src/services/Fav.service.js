@@ -15,7 +15,9 @@ class FavService {
     });
   }
   static async createFav(userId, recipeId) {
+    console.log(userId, recipeId, 11111111)
     const newFav = await Fav.create({ userId, recipeId });
+    console.log(newFav)
     return newFav;
   }
   static async deleteFav(recipeId, userId) {
