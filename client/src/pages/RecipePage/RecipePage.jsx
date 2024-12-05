@@ -4,8 +4,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { message as antMessage } from 'antd';
-import RecipeList from '../../widgets/Navigation/RecipeList/RecipeList';
-import RecipeForm from '../../widgets/Navigation/RecipeForm/RecipeForm';
+import RecipeList from '../../widgets/RecipeList/RecipeList';
+import RecipeForm from '../../widgets/RecipeForm/RecipeForm';
 import RecipeApi from '../../entities/recipe/RecipeApi';
 
 

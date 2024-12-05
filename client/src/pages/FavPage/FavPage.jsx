@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../shared/lib/axiosInstance';
-import RecipeCard from '../../widgets/RecipeCard';
+import RecipeCard from '../../widgets/RecipeCard/RecipeCard';
 
 function FavPage() {
     const [favorites, setFavorites] = useState([]);
