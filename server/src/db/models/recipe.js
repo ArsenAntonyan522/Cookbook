@@ -7,11 +7,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ User, Fav }) {
       this.belongsToMany(User, {
         foreignKey: 'recipeId',
-        through: BooksAuthor,
+        through: Fav,
       });
     }
   }
-  }
+  
   Recipe.init({
     title: DataTypes.STRING,
     ingredient: DataTypes.STRING,
