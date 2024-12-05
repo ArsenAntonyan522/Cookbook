@@ -44,7 +44,7 @@ class RecipeApi {
 
   static async deleteFromFav(recipeId) {
     try {
-      const { data } = await axiosInstance.delete(`/fav/${recipeId}`);
+      const { data } = await axiosInstance.delete(`/favId/${recipeId}`);
       return data;
     } catch (error) {
       return error.response.data;
