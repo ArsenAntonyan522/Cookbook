@@ -18,10 +18,10 @@ class FavService {
     const newFav = await Fav.create({ userId, recipeId });
     return newFav;
   }
-  static async deleteFav(id) {
-    const deleteFavCount = await this.getById(id);
+  static async deleteFav(recipeId, userId) {
+    const deleteFavCount = await this.getByRecipeId(recipeId, userId);
     if (deleteFavCount) {
-      await deleteFavCount.destroy({ where: { id } });
+      await deleteFavCount.destroy();
     }
     return deleteFavCount;
   }
