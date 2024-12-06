@@ -8,8 +8,10 @@ import { setAccessToken } from "../shared/lib/axiosInstance.js";
 import NotFound from "../pages/Not found/notFound.jsx";
 import RecipePage from "../pages/RecipePage/RecipePage.jsx";
 import RandomRecipeForm from "../widgets/RandomRecipeForm/RandomRecipeForm.jsx";
+import RecipeOnePage from "../widgets/RecipeOnePage/RecipeOnePage.jsx"
 import MainPage from "../pages/MainPage/MainPage.jsx";
 import FavPage from "../pages/FavPage/FavPage.jsx";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -43,14 +45,16 @@ function App() {
           element: user ? <FavPage user={user} /> :
             <SignInPage setUser={setUser} />
         },
+     
         { path: "/recipes",
           element: user ? <RecipePage user={user} /> :
             <SignInPage setUser={setUser} />
         },
-        { path: "/recipes",
-          element: user ? <RandomRecipeForm user={user} /> :
-            <SignInPage setUser={setUser} />
-        },
+        { path: "/recipe/:id", element: <RecipeOnePage user={user}/> },
+        // { path: "/random-recipes",
+        //   element: user ? <RandomRecipeForm user={user} /> :
+        //     <SignInPage setUser={setUser} />
+        // },
         { path: "*", element: <NotFound  /> },
       ],
     },

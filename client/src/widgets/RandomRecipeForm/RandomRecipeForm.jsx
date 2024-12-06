@@ -8,24 +8,26 @@ export default function RandomRecipeForm() {
   const [recipes, setRecipes] = useState([]);  
   const [loading, setLoading] = useState(true); 
 
+  const fetchRandomRecipes = async () => {
+    try {
+      const data = await RecipeApi.getRandom(); // Используйте правильный метод
+      setRecipes(data);  
+    } catch (err) {
+      console.error("Ошибка при получении рецептов:", err);
+    } finally {
+      setLoading(false); 
+    }
+
+
   useEffect(() => {
-    const fetchRandomRecipes = async () => {
-      try {
-        const data = await RecipeApi.getRandom(); // Используйте правильный метод
-        setRecipes(data); // Учитывайте структуру данных
-      } catch (err) {
-        console.error("Ошибка при получении рецептов:", err);
-      } finally {
-        setLoading(false); 
-      }
-    };
 
     fetchRandomRecipes();
   }, []);
 
+console.log(fetchRandomRecipes());
 
 
-  
+
   return (
     <div>
       <RecipeForm input={input} setInput={setInput} />
@@ -41,4 +43,5 @@ export default function RandomRecipeForm() {
       )}
     </div>
   );
+  }
 }
