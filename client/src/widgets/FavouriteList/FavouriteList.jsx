@@ -32,7 +32,7 @@ export default function FavouriteList() {
     try {
        await RecipeApi.deleteFromFav(recipeId)
         setFavorites((prev) => [...prev].filter((el) => el.recipeId !== recipeId));
-        antMessage.success("Рецепт удалён!");
+        antMessage.success("The recipe has been deleted");
     } catch (error) {
       antMessage.error(error.message);
       console.log(error);
@@ -92,7 +92,7 @@ export default function FavouriteList() {
         <p> </p>
         <img src="https://www.meme-arsenal.com/memes/a6719f86288b339b56b7a3661961b84c.jpg"
           alt="no favorites"
-        style={{ width: "100%", maxWidth: "700px", marginTop: "30px" }}/>
+        style={{ width: "100%", maxWidth: "900px", marginTop: "30px" }}/>
         </div>
       )}
     </div>
