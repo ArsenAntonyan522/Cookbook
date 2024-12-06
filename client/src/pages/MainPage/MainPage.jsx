@@ -1,9 +1,9 @@
-
+import styles from "./MainPage.module.css";
 
 export default function MainPage() {
   return (
-    <div>
-       <h2>Привет, жопки</h2>
+    <div className={styles.container}>
+       <span className={styles.welcome}>Привет, жопки</span>
     </div>
   );
 }
