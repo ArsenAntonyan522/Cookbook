@@ -78,7 +78,7 @@ class RecipeApi {
   static async getAllFavorites() {
     try {
       const { data } = await axiosInstance.get("/fav"); 
-      return data; // Список избранных рецептов
+      return data; 
     } catch (error) {
       console.error(error);
       return error.response.data;
