@@ -14,14 +14,17 @@ class FavService {
       where: { userId },
     });
   }
-  static async createFav(userId, recipeId) {
-    const newFav = await Fav.create({ userId, recipeId });
+  static async createFav(userId, recipeId, title, image) { // 
+    console.log(userId, recipeId, 11111111)
+    const newFav = await Fav.create({ userId, recipeId, title, image });
+    console.log(newFav)
     return newFav;
   }
-  static async deleteFav(id) {
-    const deleteFavCount = await this.getById(id);
+  
+  static async deleteFav(recipeId, userId) {
+    const deleteFavCount = await this.getByRecipeId(recipeId, userId);
     if (deleteFavCount) {
-      await deleteFavCount.destroy({ where: { id } });
+      await deleteFavCount.destroy();
     }
     return deleteFavCount;
   }
