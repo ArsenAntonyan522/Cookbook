@@ -1,5 +1,4 @@
 export default function RecipeForm({ input, setInput}) {
-
   return (
     <div>
         <h1>Поиск рецептов</h1>
@@ -9,9 +8,8 @@ export default function RecipeForm({ input, setInput}) {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Введите название блюда"
     />
-      
+
     </div>
   );
-
 }
 

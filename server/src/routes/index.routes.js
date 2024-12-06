@@ -5,8 +5,6 @@ const favRoutes = require('./fav.routes')
 
 
 router
-
-
 .use("/auth", authRoutes)
 .use('/fav', favRoutes)
 
