@@ -1,0 +1,60 @@
+/* AuthForm.module.css */
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 24px;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #001529;
+    margin-bottom: 24px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .input:focus {
+    border-color: #979797;
+    box-shadow: 0 0 0 2px rgba(145, 147, 149, 0.2);
+  }
+  
+  .button {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e9e3e3;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .button:hover {
+    background-color: #ffffff;
+  }
+  
+  .button:disabled {
+    background-color: #bfbfbf;
+    cursor: not-allowed;
+  }

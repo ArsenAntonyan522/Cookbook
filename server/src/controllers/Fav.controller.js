@@ -3,6 +3,7 @@ const formatResponse = require("../utils/formatResponse");
 
 class FavController {
   static async getOneFavItem(req, res) {
+    
     try {
       const { user } = res.locals;
       const userId = user.id;
