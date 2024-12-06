@@ -38,7 +38,7 @@ export default function Navigation({ user, setUser }) {
               <img src="/abc.png" alt="logo" />
             </div>
             <div className={styles.username}>
-              <span className={styles.name}>Welcome, {user.username}</span>{""}
+              <span className={styles.name}>Bon appétit,  {user.username}</span>{""}
             </div>
             <div className={styles.buttons}>
               <Link to="/">
