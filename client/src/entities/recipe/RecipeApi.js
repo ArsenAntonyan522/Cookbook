@@ -91,6 +91,16 @@ static async getRecipeById(recipeId) {
     }
   }
 
+  static async getFavoriteByRecipeId(recipeId) {
+    try {
+      const { data } = await axiosInstance.get(`/fav/${recipeId}`); 
+      return data; 
+    } catch (error) {
+      console.error(error);
+      return error.response.data;
+    }
+  }
+
   static async getAllFavorites() {
     try {
       const { data } = await axiosInstance.get("/fav"); 

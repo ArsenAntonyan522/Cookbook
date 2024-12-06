@@ -5,9 +5,158 @@
   font-family: Yanone Kaffeesatz;
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.headerlogo {
+  margin-bottom: 24px;
+}
+
+.username {
+  font-size: 24px;
+  font-weight: 600;
+  color: #001529;
+  margin-bottom: 24px;
+}
+
+.name {
+  color: #78828c;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.bigButton {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e9e3e3;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bigButton:hover {
+  background-color: #40a9ff;
+}
+
+.auth {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.footer {
+  margin-top: 24px;
+  padding: 16px;
+  background-color: #ffffff;
+  color: #78828c;
+  text-align: center;
+  border-radius: 8px;
+  animation: slideUp 1s ease-in-out;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contacts span {
+  margin: 4px 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Yanone Kaffeesatz;
+}
+
 
 .container {
-  /* position: fixed; */
   top: 0;
   display: flex;
   width: 100%;
@@ -20,7 +169,6 @@
 }
 
 .bigButton {
-  /* display: flex; */
   border-radius: 7px;
   justify-content: center;
   align-items: center;
@@ -82,4 +230,4 @@
 
 }
 
-
+ */
